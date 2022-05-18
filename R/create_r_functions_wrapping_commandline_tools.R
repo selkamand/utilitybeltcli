@@ -167,22 +167,26 @@ CommandlineWrapper <- R6::R6Class(
 
       for (argument in cli_arg_list){
         if(argument$type == "pos"){
-          argument_line = paste0(argument_line, ",", argument$name)
+          if(argument$required)
+            argument_line = paste0(argument_line, ",", argument$name)
+          else
+            argument_line = paste0(argument_line, ",", argument$name, "=NULL")
+
           system_call = paste(system_call, paste0('<', argument$name, '>'))
           roxygen_param_lines[[argument$name]] <- document_roxygen_param_info(paramater_name = argument$name, description = argument$help_message, type = "string")
-          subfunctions[argument$name] <- paste0('raw_command <- sub(raw_command, pattern = "<',argument$name,'>", replacement = ',argument$name,')')
+          subfunctions[argument$name] <- paste0('if(!is.null(',argument$name,')) raw_command <- sub(raw_command, pattern = "<',argument$name,'>", replacement = ',argument$name,')')
         }
         if(argument$type == "arg"){
           argument_line = paste0(argument_line, ",", argument$name, "=",argument$default)
-          system_call = paste(system_call, argument$prefix, paste0('<',argument$name, '>'))
+          system_call = paste(system_call, paste0('<',argument$prefix, ";", argument$name, '>'))
 
           roxygen_param_lines[[argument$name]] <- document_roxygen_param_info(paramater_name = argument$name, description = argument$help_message, type = "string")
-          subfunctions[argument$name] <- paste0('raw_command <- sub(raw_command, pattern = "<',argument$name,'>", replacement = ',argument$name,')')
+          subfunctions[argument$name] <- paste0('if(!is.null(',argument$name,')) raw_command <- sub(raw_command, pattern = "<',argument$prefix,';', argument$name, '>", replacement = paste("',argument$prefix,'",', argument$name,'))')
         }
         if(argument$type == "flag"){
           argument_line = paste0(argument_line, ",", argument$name, "=",argument$default)
           system_call = paste(system_call, paste0("<", argument$name, ";", argument$prefix ,">"))
-          subfunctions[argument$name] <- paste0('raw_command <- sub(raw_command, pattern = "<',argument$name,';(.*?)>", replacement = "\\1")')
+          subfunctions[argument$name] <- paste0('if(',argument$name,') raw_command <- sub(raw_command, pattern = "<',argument$name,';(.*?)>", replacement = "\\\\1")')
           roxygen_param_lines[[argument$name]] <- document_roxygen_param_info(paramater_name = argument$name, description = argument$help_message, type = "boolean")
 
         }
@@ -195,6 +199,8 @@ CommandlineWrapper <- R6::R6Class(
 
       roxygen_param_lines_string = paste0(unlist(roxygen_param_lines), collapse = "\n")
       substition_code_string <- paste0("\t",unlist(subfunctions), collapse = "\n")
+
+      final_substitution <- 'raw_command = gsub(pattern = "<.*?>", replacement = "", x = raw_command)'
       # message(roxygen_param_lines_string)
       # message(argument_line)
       # message(system_call)
@@ -209,7 +215,8 @@ CommandlineWrapper <- R6::R6Class(
           '\t',program_on_path_assertion,'\n\n',
           "\traw_command <- '", system_call, "'",
           '\n\n', substition_code_string,
-          '\n\t', 'message("Running command: ", raw_command)',
+          '\n\t', final_substitution,
+          '\n\n\t', 'message("Running command: ", raw_command)',
           '\n\n\t', "exit_code = system(raw_command)",
           '\n\n\t', 'assertthat::assert_that(exit_code == 0, msg = paste0("Failed to run tool. Exit code [",exit_code,"]"))',
           '\n}'
@@ -221,8 +228,4 @@ CommandlineWrapper <- R6::R6Class(
 
     )
   )
-
-
-
-
 
