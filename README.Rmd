@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of utilitybeltcli is to ...
+The goal of utilitybeltcli is to make it easier to create R functions that interface with commandline tools.
 
 ## Installation
 
@@ -38,7 +38,7 @@ Lets say we want to make an R function that wraps the tool 'mosdepth'.
 
 ### Quick Start
 
-```{r}
+```{r message=FALSE}
 # Step 1: Load library
 library(utilitybeltcli)
 
