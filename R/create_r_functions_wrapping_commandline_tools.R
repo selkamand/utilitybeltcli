@@ -45,6 +45,11 @@ template_function <- function(){
 #' # Step 4: produce the R function wrapper for the tool
 #' MosdepthWrapper$create_function_wrapping_commandline_tool()
 #' }
+#'
+#' @importFrom R6 R6Class
+#' @importFrom assertthat assert_that is.flag
+#' @importFrom clipr write_clip
+#' @importFrom utilitybeltassertions fmtsuccess assert_program_exists_in_path
 CommandlineWrapper <- R6::R6Class(
   classname = "CommandlineWrapper",
   public = list(

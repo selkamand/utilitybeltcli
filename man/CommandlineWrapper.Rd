@@ -37,6 +37,7 @@ MosdepthWrapper$add_pos(name = "bam_or_cram", required = TRUE)
 # Step 4: produce the R function wrapper for the tool
 MosdepthWrapper$create_function_wrapping_commandline_tool()
 }
+
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
