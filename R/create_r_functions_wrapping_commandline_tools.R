@@ -200,7 +200,7 @@ CommandlineWrapper <- R6::R6Class(
       roxygen_param_lines_string = paste0(unlist(roxygen_param_lines), collapse = "\n")
       substition_code_string <- paste0("\t",unlist(subfunctions), collapse = "\n")
 
-      final_substitution <- 'raw_command = gsub(pattern = "<.*?>", replacement = "", x = raw_command, perl=TRUE)'
+      final_substitution <- 'raw_command = gsub(pattern = "<.*?> ?", replacement = "", x = raw_command, perl=TRUE)'
       # message(roxygen_param_lines_string)
       # message(argument_line)
       # message(system_call)
