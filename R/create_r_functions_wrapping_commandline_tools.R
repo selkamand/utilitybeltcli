@@ -49,7 +49,6 @@ template_function <- function(){
 #' @importFrom R6 R6Class
 #' @importFrom assertthat assert_that is.flag
 #' @importFrom clipr write_clip
-#' @importFrom utilitybeltassertions fmtsuccess assert_program_exists_in_path
 CommandlineWrapper <- R6::R6Class(
   classname = "CommandlineWrapper",
   public = list(
@@ -222,7 +221,7 @@ CommandlineWrapper <- R6::R6Class(
           '\n}'
         )
       message(final_assembled_function)
-      message("\n\n", utilitybeltassertions::fmtsuccess("Writing function definition to clipboard"))
+      message("\n\n", fmt::fmtsuccess("Writing function definition to clipboard"))
       clipr::write_clip(final_assembled_function, allow_non_interactive = TRUE)
     }
 

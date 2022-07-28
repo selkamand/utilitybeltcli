@@ -58,17 +58,17 @@ Initialise CommandLineWrapperClass}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CommandlineWrapper$new()}}
-\item \href{#method-add_arg}{\code{CommandlineWrapper$add_arg()}}
-\item \href{#method-add_pos}{\code{CommandlineWrapper$add_pos()}}
-\item \href{#method-add_flag}{\code{CommandlineWrapper$add_flag()}}
-\item \href{#method-create_function_wrapping_commandline_tool}{\code{CommandlineWrapper$create_function_wrapping_commandline_tool()}}
-\item \href{#method-clone}{\code{CommandlineWrapper$clone()}}
+\item \href{#method-CommandlineWrapper-new}{\code{CommandlineWrapper$new()}}
+\item \href{#method-CommandlineWrapper-add_arg}{\code{CommandlineWrapper$add_arg()}}
+\item \href{#method-CommandlineWrapper-add_pos}{\code{CommandlineWrapper$add_pos()}}
+\item \href{#method-CommandlineWrapper-add_flag}{\code{CommandlineWrapper$add_flag()}}
+\item \href{#method-CommandlineWrapper-create_function_wrapping_commandline_tool}{\code{CommandlineWrapper$create_function_wrapping_commandline_tool()}}
+\item \href{#method-CommandlineWrapper-clone}{\code{CommandlineWrapper$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CommandlineWrapper-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CommandlineWrapper-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommandlineWrapper$new(
@@ -102,8 +102,8 @@ Adds an argument to cli_arg_list. Here, an arg is defined as something like  \st
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_arg"></a>}}
-\if{latex}{\out{\hypertarget{method-add_arg}{}}}
+\if{html}{\out{<a id="method-CommandlineWrapper-add_arg"></a>}}
+\if{latex}{\out{\hypertarget{method-CommandlineWrapper-add_arg}{}}}
 \subsection{Method \code{add_arg()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommandlineWrapper$add_arg(
@@ -135,8 +135,8 @@ Adds a position argument to cli_arg_list. Here, a positional argument is defined
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_pos"></a>}}
-\if{latex}{\out{\hypertarget{method-add_pos}{}}}
+\if{html}{\out{<a id="method-CommandlineWrapper-add_pos"></a>}}
+\if{latex}{\out{\hypertarget{method-CommandlineWrapper-add_pos}{}}}
 \subsection{Method \code{add_pos()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommandlineWrapper$add_pos(
@@ -166,8 +166,8 @@ Here, a flag is defined as something like  \strong{base_command --verbose}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_flag"></a>}}
-\if{latex}{\out{\hypertarget{method-add_flag}{}}}
+\if{html}{\out{<a id="method-CommandlineWrapper-add_flag"></a>}}
+\if{latex}{\out{\hypertarget{method-CommandlineWrapper-add_flag}{}}}
 \subsection{Method \code{add_flag()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommandlineWrapper$add_flag(
@@ -199,8 +199,8 @@ Creates an r function wrapping a commandline tool and saves it to clipboard
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-create_function_wrapping_commandline_tool"></a>}}
-\if{latex}{\out{\hypertarget{method-create_function_wrapping_commandline_tool}{}}}
+\if{html}{\out{<a id="method-CommandlineWrapper-create_function_wrapping_commandline_tool"></a>}}
+\if{latex}{\out{\hypertarget{method-CommandlineWrapper-create_function_wrapping_commandline_tool}{}}}
 \subsection{Method \code{create_function_wrapping_commandline_tool()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommandlineWrapper$create_function_wrapping_commandline_tool()}\if{html}{\out{</div>}}
@@ -211,8 +211,8 @@ Run for its side-effects (copies R function definition to clipboard)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CommandlineWrapper-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CommandlineWrapper-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
