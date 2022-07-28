@@ -81,7 +81,6 @@ roxygen_text_to_doc <- function(roxygen_string = clipr::read_clip()) {
     value = roxygen2::block_get_tag(roxy_block, tag = "return"),
     description = roxygen2::block_get_tag(roxy_block, tag = "description")
   )
-  browser()
 
   lapply(seq_along(results), function(i) {
     tag <- names(results)[i]
@@ -134,7 +133,6 @@ roxygen_text_to_doc <- function(roxygen_string = clipr::read_clip()) {
   title = results$title$val
   title_no_spaces = gsub(x=title,pattern = " ", replacement = "_")
   description = results$description$val
-  #browser()
   usage = paste0(
     title_no_spaces, " ",paste0(paramater_cli_strings_with_optionals_wrapped, collapse = " ")
     )
